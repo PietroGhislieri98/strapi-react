@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "givenanswers",
+  "info": {
+    "singularName": "givenanswer",
+    "pluralName": "givenanswers",
+    "displayName": "GivenAnswer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "answers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::test-manager.answer",
+      "inversedBy": "givenanswers"
+    },
+    "testexecution": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::test-manager.testexecution"
+    },
+    "test_execution": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::test-manager.testexecution",
+      "inversedBy": "givenanswer"
+    }
+  }
+}

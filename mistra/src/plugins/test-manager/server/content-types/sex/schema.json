@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sexes",
+  "info": {
+    "singularName": "sex",
+    "pluralName": "sexes",
+    "displayName": "Sex"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "testexecution": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::test-execution.testexecution",
+      "mappedBy": "sex"
+    }
+  }
+}

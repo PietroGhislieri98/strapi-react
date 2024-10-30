@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questionintests",
+  "info": {
+    "singularName": "questionintest",
+    "pluralName": "questionintests",
+    "displayName": "QuestionInTest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "questions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::test-manager.question",
+      "inversedBy": "questionschoose"
+    },
+    "tests": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::test-manager.test",
+      "mappedBy": "questionintests"
+    }
+  }
+}

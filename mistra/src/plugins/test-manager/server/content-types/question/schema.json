@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::test-manager.category",
+      "inversedBy": "questions"
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::test-manager.answer",
+      "mappedBy": "questions"
+    },
+    "questionschoose": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::test-manager.questionintest",
+      "mappedBy": "questions"
+    }
+  }
+}
+

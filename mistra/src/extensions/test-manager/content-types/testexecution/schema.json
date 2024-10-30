@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testexecutions",
+  "info": {
+    "singularName": "testexecution",
+    "pluralName": "testexecutions",
+    "displayName": "TestExecution",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "execution_time": {
+      "type": "time"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "score": {
+      "type": "decimal"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "revision_date": {
+      "type": "datetime"
+    },
+    "note": {
+      "type": "text"
+    },
+    "sex": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::test-manager.sex",
+      "inversedBy": "testexecution"
+    },
+    "test": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::test-manager.test",
+      "inversedBy": "testexecutions"
+    },
+    "givenanswer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::test-manager.givenanswer",
+      "inversedBy": "test_execution"
+    }
+  }
+}

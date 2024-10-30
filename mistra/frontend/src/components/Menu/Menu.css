@@ -1,0 +1,6 @@
+/* In Menu.css */
+.nav {
+  width: 300px !important; /* Definisci la larghezza desiderata */
+  background-color: #f0f2f5;
+  justify-content: center;
+}
