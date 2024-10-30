@@ -13,7 +13,8 @@ Start Strapi
 npm run develop
 ```
 
-### `build`
+React
+### `start`
 
 Build React aplication: enter the frontend directory and launch 
 
