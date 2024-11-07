@@ -20,6 +20,4 @@ Build React aplication: enter the frontend directory and launch
 
 ```
 npm run start
-# or
-yarn build
 ```
