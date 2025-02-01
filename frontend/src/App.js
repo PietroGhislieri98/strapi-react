@@ -7,6 +7,7 @@ import Page from './components/Page/Page';
 import Header from './components/Header/Header';
 import TestPage from './components/TestPage/TestPage';
 import TestExecutionRevisionForm from "./components/TestPage/TestExecutionRevisionForm";
+import CreateTestPage from './components/TestPage/CreateTestPage';
 
 const { Content } = Layout;
 
@@ -27,7 +28,8 @@ function App() {
             <Route path="/:slug" element={<Page />} />
             <Route path="/test" element={<TestPage />} />
             <Route path="/test_results" element={<TestExecutionRevisionForm />} />
-          </Routes>
+            <Route path="/test_create" element={<CreateTestPage />} />
+            </Routes>
         </Content>
       </Layout>
     </Router>

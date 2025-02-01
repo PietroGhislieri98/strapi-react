@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, Drawer, Button } from "antd";
 import { MenuOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
+import React from 'react';
 
 function MenuComponent() {
   const location = useLocation(); // Hook per ottenere la location corrente
@@ -63,6 +64,7 @@ function MenuComponent() {
     { key: '/events', label: <Link to="/events" onClick={() => handleMenuClick('/events')}>Eventi</Link> },
     { key: '/test', label: <Link to="/test" onClick={() => handleMenuClick('/test')} >Test</Link> },
     { key: '/test_results', label: <Link to="/test_results" onClick={() => handleMenuClick('/test_results')} >Test Execution</Link> },
+    { key: '/test_create', label: <Link to="/test_create" onClick={() => handleMenuClick('/test_create')} >Test Create</Link> },
   ];
 
   // Hook per rilevare il resize dello schermo e determinare se è mobile o meno
