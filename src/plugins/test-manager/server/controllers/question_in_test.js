@@ -2,7 +2,11 @@
 
 module.exports = {
   async create(ctx) {
-    ctx.body = await strapi.plugin('test-manager').service('questionintest').create(ctx.request.body);
+    const newEntry = await strapi.entityService.create("plugin::test-manager.questionintest", {
+        data: ctx.request.body.data,
+        populate: ["tests", "questions"], 
+      });
+      ctx.body = newEntry;
   },
 
   async find(ctx) {

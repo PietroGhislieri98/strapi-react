@@ -199,7 +199,7 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: '/questionintest',
+    path: '/questionintests',
     handler: 'questionintest.create',
     config: {
       policies: [],
@@ -208,7 +208,7 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/questionintest',
+    path: '/questionintests',
     handler: 'questionintest.find',
     config: {
       policies: [],
@@ -217,7 +217,7 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/questionintest/:id',
+    path: '/questionintests/:id',
     handler: 'questionintest.findOne',
     config: {
       policies: [],
@@ -226,7 +226,7 @@ module.exports = [
   },
   {
     method: 'DELETE',
-    path: '/questionintest/:id',
+    path: '/questionintests/:id',
     handler: 'questionintest.delete',
     config: {
       policies: [],
@@ -264,6 +264,42 @@ module.exports = [
     method: 'DELETE',
     path: '/sexes/:id',
     handler: 'sex.delete',
+    config: {
+      policies: [],
+      auth: false,
+    },
+  },
+  {
+    method: 'POST',
+    path: '/answers',
+    handler: 'answer.create',
+    config: {
+      policies: [],
+      auth: false,
+    },
+  },
+  {
+    method: 'GET',
+    path: '/answers',
+    handler: 'answer.find',
+    config: {
+      policies: [],
+      auth: false,
+    },
+  },
+  {
+    method: 'GET',
+    path: '/answers/:id',
+    handler: 'answer.findOne',
+    config: {
+      policies: [],
+      auth: false,
+    },
+  },
+  {
+    method: 'DELETE',
+    path: '/answers/:id',
+    handler: 'answer.delete',
     config: {
       policies: [],
       auth: false,

@@ -32,7 +32,7 @@ const CreateTestPage = () => {
   const handleSubmit = async () => {
     try {
       // Step 1: Create the test
-      const testResponse = await axios.post('http://localhost:1337/api/tests', {
+      const testResponse = await axios.post('http://localhost:1337/test-manager/tests', {
         name: testName,
         description: testDescription,
       });
@@ -41,25 +41,29 @@ const CreateTestPage = () => {
 
       // Step 2: Create questions and link them
       for (let q of questions) {
-        const questionResponse = await axios.post('http://localhost:1337/api/questions', {
+        const questionResponse = await axios.post('http://localhost:1337/test-manager/questions', {
           text: q.text,
         });
         const questionId = questionResponse.data.id;
 
         // Step 3: Create answers and link them
         for (let a of q.answers) {
-          await axios.post('http://localhost:1337/api/answers', {
+          await axios.post('http://localhost:1337/test-manager/answers', {
             text: a.text,
             score: a.isCorrect ? 1 : 0,
-            question: questionId,
+            questions: [questionId],
           });
         }
 
         // Step 4: Link question to test
-        await axios.post('http://localhost:1337/api/questionintests', {
-          test: testId,
-          question: questionId,
+        const questionintests = await axios.post('http://localhost:1337/test-manager/questionintests', {
+          data: {
+            tests: [{ id: testId }],  // Ensure IDs are inside objects
+            questions: [{ id: questionId }]
+          }
         });
+        
+        console.log(questionintests)
       }
 
       message.success('Test created successfully!');

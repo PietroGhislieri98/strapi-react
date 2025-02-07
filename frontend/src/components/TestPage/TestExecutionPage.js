@@ -44,14 +44,13 @@ function TestExecutionPage({ test, questions, testExecutionId }) {
 
   const handleSubmit = async () => {
     try {
-      console.log(answers);
       // Estrai gli answerId da tutte le risposte
       const answerIds = answers.map(answer => answer.answerId);
 
       // Invia un'unica richiesta POST con tutte le risposte
       await axios.post('http://localhost:1337/test-manager/givenanswers', {
         test_execution: testExecutionId,
-        answers: answerIds, // Passa un array di answerId
+        answers: answerIds, 
       });
 
       setTotalScore( answers.reduce((sum, answer) => sum + answer.score, 0));

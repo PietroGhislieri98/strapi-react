@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = ({ strapi }) => ({
-  async create(data= {}) {
+  async create(data) {
     return await strapi.entityService.create('plugin::test-manager.test', { data });
   },
 
@@ -18,7 +18,7 @@ module.exports = ({ strapi }) => ({
             questions: {
               populate: {
                 answers: {
-                  populate: ['answer'], // Modifica la struttura per specificare il campo "answer"
+                  populate: ['answer'], 
                 },
               },
             },
