@@ -65,6 +65,7 @@ function MenuComponent() {
     { key: '/test', label: <Link to="/test" onClick={() => handleMenuClick('/test')} >Test</Link> },
     { key: '/test_results', label: <Link to="/test_results" onClick={() => handleMenuClick('/test_results')} >Test Execution</Link> },
     { key: '/test_create', label: <Link to="/test_create" onClick={() => handleMenuClick('/test_create')} >Test Create</Link> },
+    { key: '/test_recap', label: <Link to="/test_recap" onClick={() => handleMenuClick('/test_recap')} >Test Recap</Link> },
   ];
 
   // Hook per rilevare il resize dello schermo e determinare se è mobile o meno

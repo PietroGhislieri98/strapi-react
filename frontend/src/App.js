@@ -8,6 +8,8 @@ import Header from './components/Header/Header';
 import TestPage from './components/TestPage/TestPage';
 import TestExecutionRevisionForm from "./components/TestPage/TestExecutionRevisionForm";
 import CreateTestPage from './components/TestPage/CreateTestPage';
+import TestRecapPage from './components/TestPage/TestRecapPage';
+import TestDetailsPage from './components/TestPage/TestDetailsPage';
 
 const { Content } = Layout;
 
@@ -29,6 +31,8 @@ function App() {
             <Route path="/test" element={<TestPage />} />
             <Route path="/test_results" element={<TestExecutionRevisionForm />} />
             <Route path="/test_create" element={<CreateTestPage />} />
+            <Route path="/test_recap" element={<TestRecapPage />} />
+            <Route path="/test-details/:id" element={<TestDetailsPage />} />
             </Routes>
         </Content>
       </Layout>
