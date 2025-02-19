@@ -29,7 +29,7 @@ const TestDetailsPage = () => {
   const formattedQuestions = test?.questionintests?.flatMap((qt) => {
     const questionId = qt.questions.flatMap(q => q.id)[0]; // Extract the question ID
     const questionText = qt.questions.flatMap(q => q.text)[0]; // Extract the question text
-  
+
     return [
       {
         key: `question-${questionId}`,
@@ -38,7 +38,7 @@ const TestDetailsPage = () => {
         correct: null,
         isQuestion: true, // Mark this as a question row
       },
-      ...qt.questions.flatMap(q => 
+      ...qt.questions.flatMap(q =>
         q.answers.map(a => ({
           key: `answer-${a.id}`,
           question: '', // Keep empty to prevent duplication
@@ -49,33 +49,7 @@ const TestDetailsPage = () => {
       ),
     ];
   }) || [];
-  
-  
-  // const questionColumns = [
-  //   {
-  //     title: 'Domande',
-  //     dataIndex: 'question',
-  //     key: 'question',
-  //   },
-  //   {
-  //     title: 'Risposte',
-  //     key: 'answers',
-  //     render: (_, record) => (
-  //       <Table
-  //         dataSource={record.answers}
-  //         columns={[
-  //           { dataIndex: 'text', key: 'text' },
-  //           { dataIndex: 'correct', key: 'correct' },
-  //         ]}
-  //         pagination={false}
-  //         size="small"
-  //         bordered
-  //       />
-  //     ),
-  //   },
-  // ];
 
-  
   const questionColumns = [
     {
       title: 'Question',
@@ -96,7 +70,7 @@ const TestDetailsPage = () => {
       key: 'correct',
     },
   ];
-  
+
   return (
     <div style={{ padding: 20 }}>
       <Card title={test ? `Test: ${test.name}` : "Loading..."} extra={<Button onClick={() => navigate(-1)}>Back</Button>}>

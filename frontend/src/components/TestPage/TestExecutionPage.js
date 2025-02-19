@@ -9,6 +9,7 @@ function TestExecutionPage({ test, questions, testExecutionId }) {
   const [submitted, setSubmitted] = useState(false);
   const [ totalScore, setTotalScore ] = useState()
   const [ipAddress, setIpAddress] = useState();
+ const [code, setCode] = useState("");
 
   const fetchIpAddress = async () => {
     try {
@@ -44,23 +45,29 @@ function TestExecutionPage({ test, questions, testExecutionId }) {
 
   const handleSubmit = async () => {
     try {
+      const testCode = `TEST-${testExecutionId}`;
+
       // Estrai gli answerId da tutte le risposte
       const answerIds = answers.map(answer => answer.answerId);
 
       // Invia un'unica richiesta POST con tutte le risposte
       await axios.post('http://localhost:1337/test-manager/givenanswers', {
         test_execution: testExecutionId,
-        answers: answerIds, 
+        answers: answerIds,
       });
 
       setTotalScore( answers.reduce((sum, answer) => sum + answer.score, 0));
+      setCode(testCode);
 
       await axios.put(`http://localhost:1337/test-manager/testexecutions/${testExecutionId}`, {
           score: answers.reduce((sum, answer) => sum + answer.score, 0),
           ip: ipAddress,
+          code : testCode,
       });
+
       message.success('Test submitted successfully');
       setSubmitted(true);
+
     } catch (error) {
       console.error('Error submitting test:', error);
       message.error('Error submitting test');
@@ -68,7 +75,7 @@ function TestExecutionPage({ test, questions, testExecutionId }) {
   };
 
   if (submitted) {
-    return <TestResultPage testExecutionId={testExecutionId} score={totalScore}  />;
+    return <TestResultPage testExecutionId={testExecutionId} score={totalScore} code={code}  />;
 
   }
 

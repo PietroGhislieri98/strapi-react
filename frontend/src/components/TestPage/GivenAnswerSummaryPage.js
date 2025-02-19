@@ -13,7 +13,7 @@ const GivenAnswerSummaryPage = ({ testExecutionId }) => {
 
   const transformData = (data) => {
     const result = {
-      testExecutionId: data.id,
+      testExecutionId: data.code,
       executionTime: data.execution_time,
       age: data.age,
       score: data.score,
@@ -70,7 +70,7 @@ const GivenAnswerSummaryPage = ({ testExecutionId }) => {
 
   const columns = [
     {
-      title: 'Test Execution ID',
+      title: 'Test Execution Code',
       dataIndex: 'testExecutionId',
       key: 'testExecutionId',
     },

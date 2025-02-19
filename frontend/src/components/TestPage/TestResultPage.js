@@ -5,7 +5,7 @@ import GivenAnswerSummaryPage from "./GivenAnswerSummaryPage";
 
 const { Title, Paragraph } = Typography;
 
-const TestResultPage = ({ testExecutionId, score }) => {
+const TestResultPage = ({ testExecutionId, score, code }) => {
   const [submitted, setSubmitted] = useState(false);
   const handleContinue = () => {
     setSubmitted(true);
@@ -25,7 +25,7 @@ const TestResultPage = ({ testExecutionId, score }) => {
     }}>
     <div>
       <Title>Test Completed</Title>
-      <Paragraph>Your test ID is: {testExecutionId}</Paragraph>
+      <Paragraph>Your test ID is: {code}</Paragraph>
       <Paragraph>Your score is: {score}</Paragraph>
 
       <Button type="primary" onClick={handleContinue}>

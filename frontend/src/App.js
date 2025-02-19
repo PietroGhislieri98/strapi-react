@@ -10,6 +10,9 @@ import TestExecutionRevisionForm from "./components/TestPage/TestExecutionRevisi
 import CreateTestPage from './components/TestPage/CreateTestPage';
 import TestRecapPage from './components/TestPage/TestRecapPage';
 import TestDetailsPage from './components/TestPage/TestDetailsPage';
+import LoginPage from "./components/Login/LoginPage";
+import ProtectedRoute from "./components/Login/ProtectedRoute";
+import DashboardPage from "./components/Login/DashboardPage";
 
 const { Content } = Layout;
 
@@ -30,9 +33,11 @@ function App() {
             <Route path="/:slug" element={<Page />} />
             <Route path="/test" element={<TestPage />} />
             <Route path="/test_results" element={<TestExecutionRevisionForm />} />
-            <Route path="/test_create" element={<CreateTestPage />} />
-            <Route path="/test_recap" element={<TestRecapPage />} />
+            <Route path="/test_create" element={<ProtectedRoute><CreateTestPage /></ProtectedRoute>} />
+            <Route path="/test_recap" element={<ProtectedRoute><TestRecapPage /></ProtectedRoute>} />
             <Route path="/test-details/:id" element={<TestDetailsPage />} />
+            <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+            <Route path="/login" element={<LoginPage />} />
             </Routes>
         </Content>
       </Layout>

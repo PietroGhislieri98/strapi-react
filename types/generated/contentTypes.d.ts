@@ -815,6 +815,7 @@ export interface PluginTestManagerTestexecution extends Schema.CollectionType {
       'oneToOne',
       'plugin::test-manager.givenanswer'
     >;
+    code: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

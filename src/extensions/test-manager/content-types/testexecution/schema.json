@@ -47,6 +47,9 @@
       "relation": "oneToOne",
       "target": "plugin::test-manager.givenanswer",
       "inversedBy": "test_execution"
+    },
+    "code": {
+      "type": "string"
     }
   }
 }

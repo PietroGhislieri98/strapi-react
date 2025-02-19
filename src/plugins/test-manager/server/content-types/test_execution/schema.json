@@ -30,6 +30,9 @@
     "note": {
       "type": "text"
     },
+    "code": {
+      "type": "string"
+    },
     "sex": {
       "type": "relation",
       "relation": "oneToOne",

@@ -27,7 +27,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::test-manager.testexecution",
-      "inversedBy": "givenanswer"
+      "mappedBy": "givenanswer"
     }
   }
 }

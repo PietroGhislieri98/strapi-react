@@ -6,22 +6,22 @@ import { Form, Input, Button, message } from 'antd';
 import GivenAnswerSummaryPage from "./GivenAnswerSummaryPage";
 
 const TestExecutionRevisionForm = () => {
-  const [inputTestExecutionId, setInputTestExecutionId] = useState('');
+  const [executionCode, setExecutionCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
 
   const handleFormSubmit = async () => {
-    if (!inputTestExecutionId) {
+    if (!executionCode) {
       message.error('Please enter a valid Test Execution ID');
       return;
     }
 
     setLoading(true);
     try {
-      const revisionDate = new Date().toISOString(); // Ottiene la data corrente in formato ISO
-
-      await axios.put(`http://localhost:1337/test-manager/testexecutions/${inputTestExecutionId}`, {
+      const revisionDate = new Date().toISOString();
+      setExecutionCode (executionCode.substring(5))
+      await axios.put(`http://localhost:1337/test-manager/testexecutions/${executionCode}`, {
         data: {
           revision_date: revisionDate,
         },
@@ -40,7 +40,7 @@ const TestExecutionRevisionForm = () => {
   };
 
   if (submitted) {
-    return <GivenAnswerSummaryPage testExecutionId={inputTestExecutionId}   />;
+    return <GivenAnswerSummaryPage testExecutionId={executionCode}   />;
   }
 
   return (
@@ -54,10 +54,10 @@ const TestExecutionRevisionForm = () => {
     <div>
       <h3>Enter Test Execution ID to Update Revision Date</h3>
       <Form layout="vertical" onFinish={handleFormSubmit}>
-        <Form.Item label="Test Execution ID">
+        <Form.Item label="Test Execution Code">
           <Input
-            value={inputTestExecutionId}
-            onChange={(e) => setInputTestExecutionId(e.target.value)}
+            value={executionCode}
+            onChange={(e) => setExecutionCode(e.target.value)}
             placeholder="Enter Test Execution ID"
           />
         </Form.Item>
