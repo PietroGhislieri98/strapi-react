@@ -73,12 +73,12 @@ const TestRecapPage = () => {
         <Space>
           {/*<Button type="primary" onClick={() => navigate(`/test-details/${record.id}`)}>Details</Button>*/}
           <Popconfirm
-            title="Are you sure you want to delete this test?"
+            title="Sicuro di voler eliminare"
             onConfirm={() => deleteTest(record.id)}
-            okText="Yes"
+            okText="Sì"
             cancelText="No"
           >
-            <Button type="primary">Delete</Button>
+            <Button type="primary">Elimina</Button>
           </Popconfirm>
         </Space>
       ),
@@ -94,7 +94,7 @@ const TestRecapPage = () => {
     <div style={{ padding: 20 }}>
       <h1>Test Recap</h1>
       <Button type="primary" onClick={() => navigate('/test_create')} style={{ marginBottom: 20 }}>
-        Create New Test
+        Crea un nuovo test
       </Button>
       <Table
         columns={columns}

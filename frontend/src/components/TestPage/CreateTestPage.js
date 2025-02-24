@@ -62,40 +62,40 @@ const CreateTestPage = () => {
             questions: [{ id: questionId }]
           }
         });
-        
+
         console.log(questionintests)
       }
 
-      message.success('Test created successfully!');
+      message.success('Test creato con successo!');
     } catch (error) {
-      console.error('Error creating test:', error);
-      message.error('Failed to create test.');
+      console.error('Errore nella creazione del test:', error);
+      message.error('Errore nella creazione del test.');
     }
   };
 
   return (
     <div style={{ padding: 20 }}>
-      <Card title="Create a New Test">
+      <Card title="Crea un nuovo test">
         <Form layout="vertical">
-          <Form.Item label="Test Name">
+          <Form.Item label="Nome">
             <Input value={testName} onChange={(e) => setTestName(e.target.value)} />
           </Form.Item>
-          <Form.Item label="Test Description">
+          <Form.Item label="Descrizione">
             <Input.TextArea value={testDescription} onChange={(e) => setTestDescription(e.target.value)} />
           </Form.Item>
-          
-          <Button type="dashed" onClick={addQuestion}>Add Question</Button>
-          
+
+          <Button type="dashed" onClick={addQuestion}>Aggiungi Domanda</Button>
+
           {questions.map((q, qIndex) => (
             <Card key={qIndex} style={{ marginTop: 10 }}>
               <Input
-                placeholder="Question Text"
+                placeholder="Domande"
                 value={q.text}
                 onChange={(e) => updateQuestion(qIndex, e.target.value)}
               />
-              
-              <Button type="dashed" onClick={() => addAnswer(qIndex)} style={{ marginTop: 10 }}>Add Answer</Button>
-              
+
+              <Button type="dashed" onClick={() => addAnswer(qIndex)} style={{ marginTop: 10 }}>Aggiungi Risposta</Button>
+
               {q.answers.map((a, aIndex) => (
                 <Space key={aIndex} style={{ display: 'flex', marginTop: 10 }}>
                   <Input
@@ -106,13 +106,13 @@ const CreateTestPage = () => {
                   <Checkbox
                     checked={a.isCorrect}
                     onChange={(e) => updateAnswer(qIndex, aIndex, 'isCorrect', e.target.checked)}
-                  >Correct</Checkbox>
+                  >Corretto</Checkbox>
                 </Space>
               ))}
             </Card>
           ))}
-          
-          <Button type="primary" onClick={handleSubmit} style={{ marginTop: 20 }}>Create Test</Button>
+
+          <Button type="primary" onClick={handleSubmit} style={{ marginTop: 20 }}>Crea Test</Button>
         </Form>
       </Card>
     </div>

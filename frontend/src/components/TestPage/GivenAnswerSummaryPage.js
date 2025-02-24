@@ -14,7 +14,7 @@ const GivenAnswerSummaryPage = ({ testExecutionId }) => {
   const transformData = (data) => {
     const result = {
       testExecutionId: data.code,
-      executionTime: data.execution_time,
+      executionTime: new Date(data.execution_time).toDateString() ,
       age: data.age,
       score: data.score,
       ip: data.ip,
@@ -70,17 +70,17 @@ const GivenAnswerSummaryPage = ({ testExecutionId }) => {
 
   const columns = [
     {
-      title: 'Test Execution Code',
+      title: 'Codice',
       dataIndex: 'testExecutionId',
       key: 'testExecutionId',
     },
     {
-      title: 'Execution Time',
+      title: 'Data di esecuzione',
       dataIndex: 'executionTime',
       key: 'executionTime',
     },
     {
-      title: 'Age',
+      title: 'Età',
       dataIndex: 'age',
       key: 'age',
     },
@@ -95,7 +95,7 @@ const GivenAnswerSummaryPage = ({ testExecutionId }) => {
       key: 'ip',
     },
     {
-      title: 'Revision Date',
+      title: 'Date di revisione',
       dataIndex: 'revisionDate',
       key: 'revisionDate',
     },
@@ -105,16 +105,15 @@ const GivenAnswerSummaryPage = ({ testExecutionId }) => {
       key: 'note',
     },
     {
-      title: 'Given Answers',
+      title: 'Risposte',
       key: 'givenAnswers',
       render: (_, record) => (
         <ul>
           {record.givenAnswers.map((answer) => (
             <li key={answer.id}>
               <ul>
-                <li>Text: {answer.text}</li>
-                <li>Correction: {answer.correction}</li>
-                <li>Score: {answer.score}</li>
+                <li>Risposta: {answer.text}</li>
+                <li>Punteggio: {answer.score}</li>
               </ul>
             </li>
           ))}
@@ -129,7 +128,7 @@ const GivenAnswerSummaryPage = ({ testExecutionId }) => {
 
   return (
     <div ref={pdfRef}>
-      <Title level={2}>Test Execution Summary</Title>
+      <Title level={2}>Riassunto Esecuzione Test</Title>
 
       {/* PDF Content Area */}
       <div>
@@ -153,7 +152,7 @@ const GivenAnswerSummaryPage = ({ testExecutionId }) => {
         cursor: 'pointer',
         boxShadow: '0px 2px 5px rgba(0,0,0,0.3)'
       }}>
-        Save as PDF
+        Salva come PDF
       </Button>
     </div>
   );

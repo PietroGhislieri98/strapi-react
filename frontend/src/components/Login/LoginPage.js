@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const LoginPage = () => {
 
     try {
       const response = await axios.post('http://localhost:1337/api/auth/local', {
-        identifier: email,
+        identifier: username,
         password: password,
       });
 
@@ -41,8 +41,8 @@ const LoginPage = () => {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Card title="Login" style={{ width: 400 }}>
         <Form layout="vertical" onFinish={handleLogin}>
-          <Form.Item label="Email">
-            <Input value={email} onChange={(e) => handleInputChange(e, setEmail)} />
+          <Form.Item label="Userneme">
+            <Input value={username} onChange={(e) => handleInputChange(e, setUsername)} />
           </Form.Item>
           <Form.Item label="Password">
             <Input.Password value={password} onChange={(e) => handleInputChange(e, setPassword)} />

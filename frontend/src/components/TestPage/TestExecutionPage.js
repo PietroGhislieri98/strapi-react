@@ -60,9 +60,11 @@ function TestExecutionPage({ test, questions, testExecutionId }) {
       setCode(testCode);
 
       await axios.put(`http://localhost:1337/test-manager/testexecutions/${testExecutionId}`, {
-          score: answers.reduce((sum, answer) => sum + answer.score, 0),
-          ip: ipAddress,
-          code : testCode,
+         data:{
+           score: answers.reduce( ( sum, answer ) => sum + answer.score, 0 ),
+           ip: ipAddress,
+           code: testCode,
+         }
       });
 
       message.success('Test submitted successfully');
@@ -115,7 +117,7 @@ function TestExecutionPage({ test, questions, testExecutionId }) {
       )}
 
       <Button type="primary" onClick={handleSubmit}>
-        Submit Test
+        Invia Test
       </Button>
     </div>
  </div>

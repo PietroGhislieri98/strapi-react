@@ -10,7 +10,7 @@ module.exports = ({ strapi }) => ({
   },
 
   async update(id, data) {
-    return await strapi.entityService.update('plugin::test-manager.testexecution', id, { data });
+    return await strapi.entityService.update('plugin::test-manager.givenanswer', id, { data });
   },
 
   async findOne(id) {

@@ -21,10 +21,10 @@ const TestExecutionRevisionForm = () => {
     try {
       const revisionDate = new Date().toISOString();
       setExecutionCode (executionCode.substring(5))
-      await axios.put(`http://localhost:1337/test-manager/testexecutions/${executionCode}`, {
-        data: {
-          revision_date: revisionDate,
-        },
+      await axios.put(`http://localhost:1337/test-manager/testexecutions/${executionCode.substring(5)}`, {
+          data: {
+            revision_date: revisionDate,
+          }
       });
 
       message.success('Test Execution revision date updated successfully');
@@ -52,13 +52,13 @@ const TestExecutionRevisionForm = () => {
       paddingBottom: '10px'
     }}>
     <div>
-      <h3>Enter Test Execution ID to Update Revision Date</h3>
+      <h3>Inserisci il codice del test per vedere il resoconto</h3>
       <Form layout="vertical" onFinish={handleFormSubmit}>
-        <Form.Item label="Test Execution Code">
+        <Form.Item label="Codice">
           <Input
             value={executionCode}
             onChange={(e) => setExecutionCode(e.target.value)}
-            placeholder="Enter Test Execution ID"
+            placeholder="Codice"
           />
         </Form.Item>
         <Form.Item>

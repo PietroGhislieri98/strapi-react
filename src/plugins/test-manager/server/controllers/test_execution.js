@@ -23,8 +23,13 @@ module.exports = {
   async update(ctx) {
     const { id } = ctx.params;
     const data = ctx.request.body;
+
+    console.log("Updating Test Execution with ID:", id);
+    console.log("Received Data:", data);
+
     const response = await strapi.plugin('test-manager').services['testexecution'].update(id, data);
     ctx.send(response);
-  },
+  }
+
 
 };

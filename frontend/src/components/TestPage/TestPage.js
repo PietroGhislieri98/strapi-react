@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Form, Input, Button, Typography, Radio, message } from 'antd';
+import { Form, Input, Button, Typography, Radio, message, Card } from 'antd';
 import TestExecutionPage from "./TestExecutionPage";
 
 const { Title, Paragraph } = Typography;
@@ -49,7 +49,7 @@ function TestPage({strapi}) {
       });
 
       const response = await axios.post('http://localhost:1337/test-manager/testexecutions', {
-          execution_time: new Date().toISOString().split('T')[1].split('Z')[0],
+          execution_time: new Date().toISOString(),
           age: age,
           sex: sexResponse.data.id,
           test: test.id,
@@ -74,33 +74,32 @@ function TestPage({strapi}) {
       display: 'flex',
       justifyContent: 'center',
       textAlign:'left',
-      height: '100vh',
-      paddingBottom: '10px'
     }}>
-    <div>
+      <Card style={{ width: 600, textAlign: 'center' }}>
       <Title>Start Test</Title>
-      <Paragraph>Please enter your age and sex to begin.</Paragraph>
+      <Paragraph>Aggiungi età e sesso per comincare</Paragraph>
 
       <Form layout="vertical"
             name="basic"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
-            autoComplete="off">
-        <Form.Item label="Age">
+            autoComplete="off"
+            style={{ alignItems: 'center' }}
+      >
+        <Form.Item label="Età" >
           <Input value={age} onChange={(e) => setAge(e.target.value)} />
         </Form.Item>
-        <Form.Item label="Sex">
+        <Form.Item label="Sesso">
           <Radio.Group onChange={(e) => setSex(e.target.value)} value={sex}>
-            <Radio value="male">Male</Radio>
-            <Radio value="female">Female</Radio>
+            <Radio value="Maschio">Maschio</Radio>
+            <Radio value="Femmina">Femmina</Radio>
+            <Radio value="Altro">Altro</Radio>
+            <Radio value="Non specificato">Perferisco non specidifcare</Radio>
           </Radio.Group>
         </Form.Item>
         <Form.Item>
           <Button type="primary" onClick={handleStartTest}>Start Test</Button>
         </Form.Item>
       </Form>
-    </div>
+    </Card>
     </div>
   );
 }

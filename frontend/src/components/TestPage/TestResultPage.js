@@ -1,7 +1,7 @@
 // TestResultPage.js
 import React, { useState } from 'react';
 import { Typography, Button } from 'antd';
-import GivenAnswerSummaryPage from "./GivenAnswerSummaryPage";
+import TestExecutionRevisionForm from "./TestExecutionRevisionForm";
 
 const { Title, Paragraph } = Typography;
 
@@ -12,7 +12,7 @@ const TestResultPage = ({ testExecutionId, score, code }) => {
   };
 
   if (submitted) {
-    return <GivenAnswerSummaryPage testExecutionId={testExecutionId}   />;
+    return <TestExecutionRevisionForm />;
   }
 
   return (
@@ -25,11 +25,11 @@ const TestResultPage = ({ testExecutionId, score, code }) => {
     }}>
     <div>
       <Title>Test Completed</Title>
-      <Paragraph>Your test ID is: {code}</Paragraph>
-      <Paragraph>Your score is: {score}</Paragraph>
+      <Paragraph>Codice Test: {code}</Paragraph>
+      <Paragraph>Punteggio: {score}</Paragraph>
 
       <Button type="primary" onClick={handleContinue}>
-        Continue
+        Visualizza Dettaglia
       </Button>
     </div>
  </div>

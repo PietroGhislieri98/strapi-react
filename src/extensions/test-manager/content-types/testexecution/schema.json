@@ -13,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "execution_time": {
-      "type": "time"
+      "type": "datetime"
     },
     "age": {
       "type": "integer"

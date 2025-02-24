@@ -24,7 +24,7 @@ function ScrollToTopButton() {
       }}
       onClick={scrollToTop}
     >
-      Scroll to Top
+      ^
     </button>
   );
 }

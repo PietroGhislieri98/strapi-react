@@ -794,7 +794,7 @@ export interface PluginTestManagerTestexecution extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    execution_time: Attribute.Time;
+    execution_time: Attribute.DateTime;
     age: Attribute.Integer;
     score: Attribute.Decimal;
     ip: Attribute.String;

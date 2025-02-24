@@ -24,7 +24,8 @@ module.exports = ({ strapi }) => ({
   },
 
   async update(id, data) {
-    return await strapi.entityService.update( 'plugin::test-manager.testexecution', id, { data } )
+    console.log("Updating test execution:", id, data);
+    return await strapi.entityService.update('plugin::test-manager.testexecution', id, data);
   },
 
   async delete(id) {
