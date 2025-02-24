@@ -41,7 +41,7 @@ const LoginPage = () => {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Card title="Login" style={{ width: 400 }}>
         <Form layout="vertical" onFinish={handleLogin}>
-          <Form.Item label="Username/Email">
+          <Form.Item label="Username - Email">
             <Input value={username} onChange={(e) => handleInputChange(e, setUsername)} />
           </Form.Item>
           <Form.Item label="Password">
